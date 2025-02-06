@@ -1,16 +1,23 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getTotalInsured } from "@/services/dashboard/get-total-insured";
+import { getTotalSumInsured } from "@/services/dashboard/get-total-sum-insured";
 
-export async function DashboardCards() {
+export async function OverviewDashboardCards() {
   const totalSales = 10;
-  const totalProducts = 10;
   const totalCustomers = 10;
   const totalSuppliers = 10;
+
+  const totalInsured = await getTotalInsured();
+  console.log(totalInsured);
+
+  const totalSumInsured = await getTotalSumInsured();
+  console.log(totalSumInsured);
 
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <Card className="bg-red-50">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Total Sales</CardTitle>
+          <CardTitle className="text-sm font-medium">Total Policy</CardTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -25,15 +32,15 @@ export async function DashboardCards() {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">${totalSales.toFixed(2)}</div>
+          <div className="text-2xl font-bold">{totalSales.toFixed(2)}</div>
           <p className="text-xs text-muted-foreground">
-            +20.1% from last month
+            Premium Amount: $10,000
           </p>
         </CardContent>
       </Card>
       <Card className="bg-orange-50">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Products</CardTitle>
+          <CardTitle className="text-sm font-medium">Total Insured</CardTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -49,13 +56,15 @@ export async function DashboardCards() {
           </svg>
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{totalProducts}</div>
-          <p className="text-xs text-muted-foreground">+180 since last month</p>
+          <div className="text-2xl font-bold">{totalInsured.toString()}</div>
+          <p className="text-xs text-muted-foreground">
+            Total Sum-Insure: ${Number(totalSumInsured).toFixed(2)}
+          </p>
         </CardContent>
       </Card>
       <Card className="bg-blue-50">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Customers</CardTitle>
+          <CardTitle className="text-sm font-medium">Total Prospect</CardTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -73,12 +82,14 @@ export async function DashboardCards() {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{totalCustomers}</div>
-          <p className="text-xs text-muted-foreground">+19% from last month</p>
+          <p className="text-xs text-muted-foreground">Number of company: 4</p>
         </CardContent>
       </Card>
       <Card className="bg-green-50">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium">Suppliers</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Total HF Partner
+          </CardTitle>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -95,7 +106,7 @@ export async function DashboardCards() {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{totalSuppliers}</div>
-          <p className="text-xs text-muted-foreground">+4 since last week</p>
+          <p className="text-xs text-muted-foreground">Not Partner: 2</p>
         </CardContent>
       </Card>
     </div>
