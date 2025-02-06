@@ -1,0 +1,12 @@
+{
+  "name": "insurance_dashboard",
+  "version": "1.0.0",
+  "description": "Initialize database and schema sample data for insurance management information system in docker containers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
