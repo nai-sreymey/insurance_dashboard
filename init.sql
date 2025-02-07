@@ -13,6 +13,8 @@ CREATE USER admin1 WITH ENCRYPTED PASSWORD 'admin1111';
 -- Grant privileges to the user
 GRANT ALL PRIVILEGES ON DATABASE pkmis_db TO admin1;
 
+
+
 -- Create the users table with a hashed password
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -396,3 +398,4 @@ VALUES
 (66, 3, '1994-06-04', 'MCD10066', '2025-03-01', '2026-03-01', 'Active'),
 (67, 3, '1991-04-23', 'MCD10067', '2025-03-01', '2026-03-01', 'Active'),
 (68, 3, '1992-07-14', 'MCD10068', '2025-03-01', '2026-03-01', 'Active');
+
