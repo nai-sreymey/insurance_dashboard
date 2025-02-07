@@ -1,4 +1,5 @@
 -- CREATE VIEW v_selcect_employee_and_company AS
+
 SELECT e.full_name, e.gender, e.date_of_birth, c.company_name, c.contact_email, c.phone_number,
     CASE
         WHEN AGE(e.date_of_birth) < INTERVAL '18 years' THEN 'Under Age'

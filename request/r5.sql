@@ -1,8 +1,10 @@
 SELECT COUNT(id) as tatal_policy
 FROM public.insurance_policy
 
+
 SELECT SUM(proposed_premium) as total_proposed_premium
 FROM quotation
+
 
 -- //average
 SELECT AVG(proposed_premium) as total_proposed_premium

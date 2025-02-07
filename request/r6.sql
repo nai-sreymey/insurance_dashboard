@@ -1,3 +1,4 @@
+
 INSERT INTO public.health_facility (
     id, health_facility_name, is_partner_hf, phone_number, location, email
 ) VALUES 
